@@ -20,27 +20,14 @@ class FooterCustom extends Component {
       tab3: false,
       tab4: false,
       tab5: false,
-      source1: require("../../../assets/Icon/Footer/TrangChu.png"),
-      source2: require("../../../assets/Icon/Footer/Tour.png"),
-      source3: require("../../../assets/Icon/Footer/LichTrinh.png"),
-      source4: require("../../../assets/Icon/Footer/LichSu.png"),
-      source5: require("../../../assets/Icon/Footer/Information.png"),
+      source1: require("../../../assets/Icon/Footer/Football_Icon/ball-icon.png"),
+      source2: require("../../../assets/Icon/Footer/Football_Icon/rank-icon.png"),
+      source3: require("../../../assets/Icon/Footer/Football_Icon/Home.png"),
+      source4: require("../../../assets/Icon/Footer/Football_Icon/video-icon.png"),
+      source5: require("../../../assets/Icon/Footer/Football_Icon/setting-icon.png"),
     };
   }
   toggleTab(index) {
-    // this.setState({
-    //   tab1: false,
-    //   tab2: false,
-    //   tab3: false,
-    //   tab4: false,
-    //   tab5: false,
-    //   source1: require("../../../assets/Icon/Footer/TrangChu.png"),
-    //   source2: require("../../../assets/Icon/Footer/Tour.png"),
-    //   source3: require("../../../assets/Icon/Footer/LichTrinh.png"),
-    //   source4: require("../../../assets/Icon/Footer/LichSu.png"),
-    //   source5: require("../../../assets/Icon/Footer/Information.png"),
-    // });
-
     this.props.onPressTab(index);
   }
   componentDidMount() {
@@ -49,31 +36,31 @@ class FooterCustom extends Component {
         case 1:
           this.setState({
             tab1: true,
-            source1: require("../../../assets/Icon/Footer/TrangChuSelect.png")
+            source1: require("../../../assets/Icon/Footer/Football_Icon/ball-icon.png")
           });
           break;
         case 2:
           this.setState({
             tab2: true,
-            source2: require("../../../assets/Icon/Footer/TourSelect.png")
+            source2: require("../../../assets/Icon/Footer/Football_Icon/rank-icon.png")
           });
           break;
         case 3:
           this.setState({
             tab3: true,
-            source3: require("../../../assets/Icon/Footer/LichTrinhSelect.png")
+            source3: require("../../../assets/Icon/Footer/Football_Icon/Home.png")
           });
           break;
         case 4:
           this.setState({
             tab4: true,
-            source4: require("../../../assets/Icon/Footer/LichSuSelect.png")
+            source4: require("../../../assets/Icon/Footer/Football_Icon/video-icon.png")
           });
           break;
         case 5:
           this.setState({
             tab5: true,
-            source5: require("../../../assets/Icon/Footer/InformationSelect.png")
+            source5: require("../../../assets/Icon/Footer/Football_Icon/setting-icon.png")
           });
           break;
       }
@@ -86,24 +73,23 @@ class FooterCustom extends Component {
       <Footer style={styles.footer}>
         <FooterTab style={styles.footerContainer}>
           <Button active={this.state.tab1} onPress={() => this.toggleTab(1)}>
-            <Image source={this.state.source1} style={{ flex: 1, width: 30, height: 30 }}></Image>
-            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>{t('home:title')}</Text>
+            <Image source={this.state.source1} style={{ flex: 1, width: 30, height: 30, resizeMode: 'contain' }}></Image>
+            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>Trận đấu</Text>
           </Button>
           <Button active={this.state.tab2} onPress={() => this.toggleTab(2)}>
-            <Image source={this.state.source2} style={{ flex: 1, width: 30, height: 30 }}></Image>
-            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>{t('tours:title')}</Text>
+            <Image source={this.state.source2} style={{ flex: 1, width: 30, height: 30, resizeMode: 'contain' }}></Image>
+            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>Bảng đấu</Text>
           </Button>
-          <Button active={this.state.tab3} onPress={() => this.toggleTab(3)}>
-            <Image source={this.state.source3} style={{ flex: 1, width: 30, height: 30 }}></Image>
-            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>{t('tours:schedule')}</Text>
+          <Button active={this.state.tab3} onPress={() => this.toggleTab(3)} style={{paddingBottom:0, paddingTop:0}}>
+            <Image source={this.state.source3} style={{ flex: 1, width: 50, height: 50, resizeMode: 'contain'}}></Image>
           </Button>
           <Button active={this.state.tab4} onPress={() => this.toggleTab(4)}>
-            <Image source={this.state.source4} style={{ flex: 1, width: 30, height: 30 }}></Image>
-            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>{t('home:historyBooking')}</Text>
+            <Image source={this.state.source4} style={{ flex: 1, width: 30, height: 30, resizeMode: 'contain' }}></Image>
+            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>Video</Text>
           </Button>
           <Button active={this.state.tab5} onPress={() => this.toggleTab(5)}>
-            <Image source={this.state.source5} style={{ flex: 1, width: 30, height: 30 }}></Image>
-            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>{t('home:menu7_1')}</Text>
+            <Image source={this.state.source5} style={{ flex: 1, width: 30, height: 30, resizeMode: 'contain' }}></Image>
+            <Text numberOfLines={1} uppercase={false} style={styles.textButton}>Thiết lập</Text>
           </Button>
         </FooterTab>
       </Footer>

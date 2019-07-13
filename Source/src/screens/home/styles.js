@@ -3,9 +3,6 @@ const { Dimensions, Platform } = React;
 const deviceHeight = Dimensions.get("window").height;
 
 export default {
-  container: {
-    backgroundColor: "#eee"
-  },
   header: {
     backgroundColor: "#009a74"
   },
@@ -59,5 +56,22 @@ export default {
     alignItems: 'center',
     marginTop: 10,
     marginLeft: 10
-  }
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ff7062',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+    fontSize: 28,
+  },
 };
