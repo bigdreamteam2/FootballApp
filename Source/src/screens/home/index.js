@@ -13,6 +13,7 @@ import DienBienAPI from '../../api/index';
 import IconFE from 'react-native-vector-icons/Feather';
 import styles from "./styles";
 import Page1 from "./page1";
+import Page2 from "./page2";
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
@@ -134,7 +135,7 @@ class Home extends Component {
             />
             }>
             <Page1 tabLabel={{label: "Trận đấu hay"}}/>
-            <Page1 tabLabel={{label: "Tin tức nổi bật"}}/>
+            <Page2 tabLabel={{label: "Tin tức nổi bật"}}/>
             <Page1 tabLabel={{label: "Bàn thắng đẹp"}}/>
         </ScrollableTabView>
         <FooterCustom ref="footerCustom" onPressTab={this.onPressTab.bind(this)} tabIndex={3}></FooterCustom>

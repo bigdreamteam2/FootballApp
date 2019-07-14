@@ -14,10 +14,11 @@ export default {
         elevation: 3
     },
     footerContainer: {
-        backgroundColor: '#fff'
+        backgroundColor: '#ff7062'
     },
     textButton: {
-        fontSize: Platform.OS === "ios" ? 8 : 10
+        fontSize: Platform.OS === "ios" ? 8 : 10,
+        color: '#000',
     },
 
 /********************** Categories ********************/

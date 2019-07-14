@@ -22,7 +22,7 @@ class FooterCustom extends Component {
       tab5: false,
       source1: require("../../../assets/Icon/Footer/Football_Icon/ball-icon.png"),
       source2: require("../../../assets/Icon/Footer/Football_Icon/rank-icon.png"),
-      source3: require("../../../assets/Icon/Footer/Football_Icon/Home.png"),
+      source3: require("../../../assets/Icon/Footer/Football_Icon/home-active.png"),
       source4: require("../../../assets/Icon/Footer/Football_Icon/video-icon.png"),
       source5: require("../../../assets/Icon/Footer/Football_Icon/setting-icon.png"),
     };
@@ -48,7 +48,7 @@ class FooterCustom extends Component {
         case 3:
           this.setState({
             tab3: true,
-            source3: require("../../../assets/Icon/Footer/Football_Icon/Home.png")
+            source3: require("../../../assets/Icon/Footer/Football_Icon/home-active.png")
           });
           break;
         case 4:

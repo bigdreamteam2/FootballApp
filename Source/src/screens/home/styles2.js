@@ -11,9 +11,7 @@ export default {
     justifyContent:'center', 
     marginLeft:0, 
     marginRight:0,
-    backgroundColor:'#9c716b',
-    borderBottomWidth:0.2,
-    borderBottomColor:'#fff',
+    backgroundColor:'#9c716b'
   },
   subHeaderGroup: {
     width:'100%', 

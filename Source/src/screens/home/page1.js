@@ -226,7 +226,7 @@ class Page1 extends Component {
   render() {
     const { t, i18n } = this.props;
     return (
-        <ScrollView>
+        <ScrollView style={{backgroundColor:'#FFF'}}>
             {this.state.list_now.length > 0 &&
                 <View style={styles.headerGroup}>
                     <Left>
