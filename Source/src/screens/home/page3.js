@@ -13,28 +13,31 @@ import DienBienAPI from '../../api/index';
 import IconFE from 'react-native-vector-icons/Feather';
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-const rec_bg = require("./../../../assets/images/rec_background.png");
+const rec_bg = require("./../../../assets/images/rec-background-white.png");
+const rec_bg_time = require("./../../../assets/images/Rectangle 6.png");
 const icon_share = require("./../../../assets/Icon/share-icon.png");
 const icon_views = require("./../../../assets/Icon/view-icon.png");
 
-class Page2 extends Component {
+class Page3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
         datas: [
             {
-                'news_featured_image_src':require("./../../../assets/images/News/image_new_1.png"),
-                'news_title':'Tiền vệ Arsenal không ngại việc phải cạnh tranh vị trí với Wilfried Zaha',
+                'news_featured_image_src':require("./../../../assets/images/image_hightlights.png"),
+                'news_title':'Highlights: Atalanta 2 - 2 Juventus ( Vòng 18 Serie A)',
                 'news_creator':'By John Wick',
                 'news_date':'05/07/2019',
                 'news_view_number':2358964,
+                'news_video_time':'15:02',
             },
             {
-                'news_featured_image_src':require("./../../../assets/images/News/image_new_1.png"),
-                'news_title':'Tiền vệ Arsenal không ngại việc phải cạnh tranh vị trí với Wilfried Zaha',
+                'news_featured_image_src':require("./../../../assets/images/image_hightlights.png"),
+                'news_title':'Highlights: Atalanta 2 - 2 Juventus ( Vòng 18 Serie A)',
                 'news_creator':'By John Wick',
                 'news_date':'05/07/2019',
                 'news_view_number':2358964,
+                'news_video_time':'15:02',
             },
         ],
     };
@@ -62,11 +65,14 @@ class Page2 extends Component {
                 dataArray={dataList}
                 renderRow={data =>
                 <ListItem thumbnail button style={styles.itemList}>
-                    <Image source={rec_bg} style={{marginLeft: 7.5, width: SCREEN_WIDTH - 15, height:335}}></Image>
+                    <Image source={rec_bg} style={{marginLeft: 7.5, width: SCREEN_WIDTH - 15, height:325}}></Image>
                     <View style={{ flex: 1, position:'absolute'}}>
                         <View style={styles.itemContainer}>
                             <View style={[styles.imageView]}>
                                 <Image square source={data.news_featured_image_src} style={styles.imageItem} />
+                                <View style={styles.timeVideoStyle}>
+                                    <Text note style={{ fontSize: 12, color:'#FFF' }} numberOfLines={1}>{data.news_video_time}</Text>
+                                </View>
                             </View>
                         </View>
                         <View style={styles.itemDescription}>
@@ -75,11 +81,8 @@ class Page2 extends Component {
                                     <Text style={{fontWeight:'bold'}} numberOfLines={2}>{data.news_title}</Text>
                                 </View>
                                 <View style={{flex:1,flexDirection:'row', marginTop:10}}>
-                                    <View style={{flex:6}}>
-                                        <View style={{flexDirection:'row'}}>
-                                            <Text note style={{textAlign: 'left', fontSize: 12, fontStyle:'italic', color:'#FFF' }} numberOfLines={1}>{this.decodeHTMLEntities(data.news_creator)}</Text>
-                                        </View>
-                                        <View style={{flexDirection:'row'}}>
+                                    <View style={{flex:6, flexDirection:'row', alignItems:'center'}}>
+                                        <View style={{flexDirection:'row', alignItems:'center'}}>
                                             <Text note style={{textAlign: 'left', fontSize: 12, color:'#FFF' }} numberOfLines={1}>{this.decodeHTMLEntities(data.news_date)}</Text>
                                         </View>
                                     </View>
@@ -147,6 +150,15 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         // marginRight: 8,
     },
+    timeVideoStyle: {
+        position:'absolute',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        bottom:0, 
+        right:0, 
+        paddingVertical:5,
+        paddingHorizontal:10,
+        // borderColor:'#FFF000', borderWidth:1
+    },
 });
 
-export default translate(['Page2'], { wait: true })(Page2);
+export default translate(['Page3'], { wait: true })(Page3);

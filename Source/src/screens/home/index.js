@@ -14,14 +14,13 @@ import IconFE from 'react-native-vector-icons/Feather';
 import styles from "./styles";
 import Page1 from "./page1";
 import Page2 from "./page2";
+import Page3 from "./page3";
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
-const icon_tournaments = require("./../../../assets/Icon/IconFootball/copa-america-icon.png");
-const icon_game_status = require("./../../../assets/Icon/notify-icon.png");
 
 class Home extends Component {
 
@@ -136,7 +135,7 @@ class Home extends Component {
             }>
             <Page1 tabLabel={{label: "Trận đấu hay"}}/>
             <Page2 tabLabel={{label: "Tin tức nổi bật"}}/>
-            <Page1 tabLabel={{label: "Bàn thắng đẹp"}}/>
+            <Page3 tabLabel={{label: "Bàn thắng đẹp"}}/>
         </ScrollableTabView>
         <FooterCustom ref="footerCustom" onPressTab={this.onPressTab.bind(this)} tabIndex={3}></FooterCustom>
       </Container>
