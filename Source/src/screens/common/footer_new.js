@@ -20,9 +20,9 @@ class FooterCustom extends Component {
       tab3: false,
       tab4: false,
       tab5: false,
-      source1: require("../../../assets/Icon/Footer/Football_Icon/ball-icon.png"),
+      source1: require("../../../assets/Icon/Footer/Football_Icon/match-icon.png"),
       source2: require("../../../assets/Icon/Footer/Football_Icon/rank-icon.png"),
-      source3: require("../../../assets/Icon/Footer/Football_Icon/home-active.png"),
+      source3: require("../../../assets/Icon/Footer/Football_Icon/home-inactive.png"),
       source4: require("../../../assets/Icon/Footer/Football_Icon/video-icon.png"),
       source5: require("../../../assets/Icon/Footer/Football_Icon/setting-icon.png"),
     };
@@ -36,13 +36,13 @@ class FooterCustom extends Component {
         case 1:
           this.setState({
             tab1: true,
-            source1: require("../../../assets/Icon/Footer/Football_Icon/ball-icon.png")
+            source1: require("../../../assets/Icon/Footer/Football_Icon/match-selected.png")
           });
           break;
         case 2:
           this.setState({
             tab2: true,
-            source2: require("../../../assets/Icon/Footer/Football_Icon/rank-icon.png")
+            source2: require("../../../assets/Icon/Footer/Football_Icon/table-match-selected.png")
           });
           break;
         case 3:
@@ -54,13 +54,13 @@ class FooterCustom extends Component {
         case 4:
           this.setState({
             tab4: true,
-            source4: require("../../../assets/Icon/Footer/Football_Icon/video-icon.png")
+            source4: require("../../../assets/Icon/Footer/Football_Icon/video-icon-selected.png")
           });
           break;
         case 5:
           this.setState({
             tab5: true,
-            source5: require("../../../assets/Icon/Footer/Football_Icon/setting-icon.png")
+            source5: require("../../../assets/Icon/Footer/Football_Icon/Setting-icon-selected.png")
           });
           break;
       }

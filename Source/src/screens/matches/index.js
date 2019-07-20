@@ -12,9 +12,9 @@ import i18n from 'i18next';
 import DienBienAPI from '../../api/index';
 import IconFE from 'react-native-vector-icons/Feather';
 import styles from "./styles";
-import Page1 from "./page1";
-import Page2 from "./page2";
-import Page3 from "./page3";
+import MatchPage1 from "./page1";
+import MatchPage2 from "./page2";
+import MatchPage3 from "./page3";
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabBar from "react-native-underline-tabbar";
@@ -22,7 +22,7 @@ import TabBar from "react-native-underline-tabbar";
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
-class Home extends Component {
+class Matches extends Component {
 
   constructor(props) {
     super(props);
@@ -133,14 +133,14 @@ class Home extends Component {
             tabStyles={{tab:{marginLeft: 10, marginRight: 10, paddingBottom: 10, width:(SCREEN_WIDTH-60) / 3}}}
             />
             }>
-            <Page1 tabLabel={{label: "Trận đấu hay"}}/>
-            <Page2 tabLabel={{label: "Tin tức nổi bật"}}/>
-            <Page3 tabLabel={{label: "Bàn thắng đẹp"}}/>
+            <MatchPage1 tabLabel={{label: "04/07, Thứ 5"}}/>
+            <MatchPage2 tabLabel={{label: "05/07, Hôm nay"}}/>
+            <MatchPage3 tabLabel={{label: "06/07, Thứ 7"}}/>
         </ScrollableTabView>
-        <FooterCustom ref="footerCustom" onPressTab={this.onPressTab.bind(this)} tabIndex={3}></FooterCustom>
+        <FooterCustom ref="footerCustom" onPressTab={this.onPressTab.bind(this)} tabIndex={1}></FooterCustom>
       </Container>
     );
   }
 }
 
-export default translate(['home'], { wait: true })(Home);
+export default translate(['Matches'], { wait: true })(Matches);

@@ -3,6 +3,9 @@ import { Root } from "native-base";
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 
 import home from "./screens/home/";
+import matches from "./screens/matches/";
+
+
 import login from "./screens/login/";
 import forgotPassword from "./screens/forgotPassword/";
 import register from "./screens/register/";
@@ -17,6 +20,10 @@ import SideBar from "./screens/sidebar/index";
 const Drawer = createDrawerNavigator(
   {
     home: { screen: home },
+    matches: { screen: matches },
+
+
+
     login: { screen: login },
     forgotPassword: { screen: forgotPassword },
     register: { screen: register },
@@ -27,7 +34,7 @@ const Drawer = createDrawerNavigator(
     changeLanguage: { screen: changeLanguage },
   },
   {
-    initialRouteName: "home",
+    initialRouteName: "matches",
     contentOptions: {
       activeTintColor: "#e91e63"
     },
