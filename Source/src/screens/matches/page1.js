@@ -17,8 +17,10 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
 const rec_bg = require("./../../../assets/images/back-ground.png");
+const rec_bg_tournaments = require("./../../../assets/images/head-line.png");
 const icon_video = require("./../../../assets/Icon/video-icon.png");
-const icon_notify = require("./../../../assets/Icon/notify-icon.png")
+const icon_notify = require("./../../../assets/Icon/notify-icon.png");
+const icon_add = require("./../../../assets/Icon/add-icon-1.png");
 
 class MatchPage1 extends Component {
   constructor(props) {
@@ -331,9 +333,11 @@ class MatchPage1 extends Component {
                         <Text style={{ fontWeight: 'bold', color: '#fff' }}>Đã diễn ra</Text>
                     </Left>
                     <Right style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ marginLeft: 2 }} success onPress={() => { this.showHideGroup(1)}}>
-                            {this.state.show1 && <IconFE name={"chevron-up"} style={{ marginRight: 10, color: '#fff' }} size={25} />}
-                            {!this.state.show1 && <IconFE name={"chevron-down"} style={{ marginRight: 10, color: '#fff' }} size={25} />}
+                        <TouchableOpacity style={{ marginLeft: 2, alignItems:'center', flexDirection: 'row'}} success onPress={() => { this.showHideGroup(1)}}>
+                            <Text note style={{color: '#f16621', marginRight:10 }}>Thêm giải đấu</Text>
+                            <Image source={icon_add}
+                                style={{width:20, height:20, resizeMode: 'contain', marginRight:5}}
+                            ></Image>
                         </TouchableOpacity>
                     </Right>
                 </View>}
@@ -341,16 +345,23 @@ class MatchPage1 extends Component {
                 dataArray={this.state.list_old}
                 renderRow={record =>
                     <View>
-                        <ListItem avatar style={styles.subHeaderGroup}>
-                            <Left style={styles.subHeaderGroupLeft}>
-                                <Image source={record.tournaments_icon}
-                                    style={styles.subHeaderGroupLeftImage}
-                                ></Image>
-                            </Left>
-                            <Body style={styles.subHeaderGroupBody}>
-                                <Text style={{ color:'#FFF' }}>{record.tournaments_name}</Text>
-                            </Body>
-                        </ListItem>
+                        <View>
+                            <View style={styles.listOne.headLine}>
+                                <Image square source={rec_bg_tournaments} style={styles.listOne.imageHeadLine} />
+                            </View>
+                            <View style={{width: SCREEN_WIDTH, position:'absolute',justifyContent:'center', paddingTop:5}}>
+                                <ListItem avatar style={styles.subHeaderGroup}>
+                                    <Left style={styles.subHeaderGroupLeft}>
+                                        <Image source={record.tournaments_icon}
+                                            style={styles.subHeaderGroupLeftImage}
+                                        ></Image>
+                                    </Left>
+                                    <Body style={styles.subHeaderGroupBody}>
+                                        <Text style={{ color:'#FFF' }}>{record.tournaments_name}</Text>
+                                    </Body>
+                                </ListItem>
+                            </View>
+                        </View>
                         <ListView
                             ref = 'listHorizontal'
                             horizontal
@@ -444,6 +455,20 @@ const styles = {
             flex: 1,
             height: 120
         },
+        headLine: {
+            flex: 1,
+            height:50,
+            paddingRight:10,
+            justifyContent:'center'
+        },
+        imageHeadLine: {
+            flex: 1,
+            width: null,
+            height:30,
+            marginTop:10,
+            marginLeft:50,
+            resizeMode: 'contain'
+        },
         imageThumbnail: {
             flex: 1,
             width: null,
@@ -535,9 +560,8 @@ const styles = {
         flexDirection: 'row', 
         justifyContent:'center', 
         alignItems: 'center',
-        marginLeft:0, 
+        marginLeft:30, 
         marginRight:0,
-        backgroundColor:'#444444',
     },
     subHeaderGroupLeft: {
         width:50, 
@@ -548,8 +572,8 @@ const styles = {
         // borderColor:'#FF0000', borderWidth:1
     },
     subHeaderGroupLeftImage: {
-        width:30, 
-        height:30,
+        width:40, 
+        height:40,
         // borderColor:'#FF0000', borderWidth:1
     },
     subHeaderGroupBody: {
