@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { Content, ScrollView, View, Dimensions, TouchableOpacity, Image, StyleSheet, AsyncStorage, Platform, Animated, Modal  } from "react-native";
 import { Container, List, ListItem, Left, Body, Thumbnail, Text, Right, Button } from 'native-base';
-import { Icon } from 'react-native-elements';
-import { Toolbar } from 'react-native-material-ui';
-import FooterCustom from '../../screens/common/footer_new';
 import moment from 'moment';
 import 'moment/locale/vi';
 import 'moment/locale/fr';
 import { translate } from 'react-i18next';
-import i18n from 'i18next';
-import DienBienAPI from '../../api/index';
-import IconFE from 'react-native-vector-icons/Feather';
 const SCREEN_WIDTH = Dimensions.get("window").width;
 import VideoFootball from "./video";
+import Orientation from 'react-native-orientation';
 
 
 const rec_bg = require("./../../../assets/images/rec-background-white.png");
@@ -54,13 +49,14 @@ class Page3 extends Component {
     this.setState({
       visiblePopupMap: false,
     });
+    Orientation.lockToPortrait();
   }
   showModelVideo(title, link) {
     this.setState({
       visiblePopupMap: true,
       titleVideo : title,
       linkVideo : link
-    })
+    });
   }
 
   componentDidMount() {
@@ -129,7 +125,7 @@ class Page3 extends Component {
                 transparent={false}
                 onRequestClose={() => {this.closeModelVideo()}}>
                 <Container>
-                    <VideoFootball linkVideo={this.state.linkVideo} titleVideo={this.state.titleVideo}></VideoFootball>
+                    <VideoFootball onClosePopup={this.closeModelVideo.bind(this)} linkVideo={this.state.linkVideo} titleVideo={this.state.titleVideo}></VideoFootball>
                 </Container>
             </Modal>
         </ScrollView>
