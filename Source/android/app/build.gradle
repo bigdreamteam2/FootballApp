@@ -159,6 +159,8 @@ dependencies {
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile project(':react-native-vector-icons')
     compile project(':react-native-share')
+    compile project(':react-native-video')
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     compile "com.google.android.gms:play-services-auth:${rootProject.ext.googlePlayServicesAuthVersion}"
     compile ("com.google.android.gms:play-services-base:16.0.1") {
         force = true

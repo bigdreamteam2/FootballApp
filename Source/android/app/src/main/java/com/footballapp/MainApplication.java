@@ -11,6 +11,7 @@ import com.imagepicker.ImagePickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 // import com.i18n.reactnativei18n.ReactNativeI18n;
+import com.brentvatne.react.ReactVideoPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -41,6 +42,7 @@ public class MainApplication extends Application implements ShareApplication, Re
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+          new ReactVideoPackage(),
           new RNGoogleSigninPackage(),
           new ImagePickerPackage(),
           new ReactNativePushNotificationPackage(),

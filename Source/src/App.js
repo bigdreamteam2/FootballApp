@@ -34,7 +34,7 @@ const Drawer = createDrawerNavigator(
     changeLanguage: { screen: changeLanguage },
   },
   {
-    initialRouteName: "matches",
+    initialRouteName: "home",
     contentOptions: {
       activeTintColor: "#e91e63"
     },

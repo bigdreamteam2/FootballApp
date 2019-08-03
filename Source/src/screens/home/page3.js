@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Content, ScrollView, View, Dimensions, TouchableOpacity, Image, StyleSheet, AsyncStorage, Platform, Animated  } from "react-native";
+import { Content, ScrollView, View, Dimensions, TouchableOpacity, Image, StyleSheet, AsyncStorage, Platform, Animated, Modal  } from "react-native";
 import { Container, List, ListItem, Left, Body, Thumbnail, Text, Right, Button } from 'native-base';
 import { Icon } from 'react-native-elements';
 import { Toolbar } from 'react-native-material-ui';
@@ -12,6 +12,8 @@ import i18n from 'i18next';
 import DienBienAPI from '../../api/index';
 import IconFE from 'react-native-vector-icons/Feather';
 const SCREEN_WIDTH = Dimensions.get("window").width;
+import VideoFootball from "./video";
+
 
 const rec_bg = require("./../../../assets/images/rec-background-white.png");
 const rec_bg_time = require("./../../../assets/images/Rectangle 6.png");
@@ -30,6 +32,7 @@ class Page3 extends Component {
                 'news_date':'05/07/2019',
                 'news_view_number':2358964,
                 'news_video_time':'15:02',
+                'news_link':'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
             },
             {
                 'news_featured_image_src':require("./../../../assets/images/image_hightlights.png"),
@@ -38,9 +41,26 @@ class Page3 extends Component {
                 'news_date':'05/07/2019',
                 'news_view_number':2358964,
                 'news_video_time':'15:02',
+                'news_link':'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
             },
         ],
+        visiblePopupMap : false,
+        titleVideo : "",
+        linkVideo : ""
     };
+  }
+
+  closeModelVideo() {
+    this.setState({
+      visiblePopupMap: false,
+    });
+  }
+  showModelVideo(title, link) {
+    this.setState({
+      visiblePopupMap: true,
+      titleVideo : title,
+      linkVideo : link
+    })
   }
 
   componentDidMount() {
@@ -55,6 +75,9 @@ class Page3 extends Component {
     //   var nontText = (text + '').replace(/<[^>]*>/g, "").replace(/\n/, '');
     //   return entities.decode(nontText)
   };
+  goToDetailScreen = () => {
+    this.props.navigation.navigate('video');
+  };
 
   render() {
     const { t, i18n } = this.props;
@@ -64,12 +87,15 @@ class Page3 extends Component {
             <List
                 dataArray={dataList}
                 renderRow={data =>
-                <ListItem thumbnail button style={styles.itemList}>
+                <ListItem thumbnail button style={styles.itemList}
+                    onPress={ () => this.goToDetailScreen() }>
                     <Image source={rec_bg} style={{marginLeft: 7.5, width: SCREEN_WIDTH - 15, height:325}}></Image>
                     <View style={{ flex: 1, position:'absolute'}}>
                         <View style={styles.itemContainer}>
                             <View style={[styles.imageView]}>
-                                <Image square source={data.news_featured_image_src} style={styles.imageItem} />
+                                <TouchableOpacity success onPress={() => this.showModelVideo(data.news_title, data.news_link)}>
+                                    <Image square source={data.news_featured_image_src} style={styles.imageItem} />
+                                </TouchableOpacity>
                                 <View style={styles.timeVideoStyle}>
                                     <Text note style={{ fontSize: 12, color:'#FFF' }} numberOfLines={1}>{data.news_video_time}</Text>
                                 </View>
@@ -97,6 +123,15 @@ class Page3 extends Component {
                     </View>
                 </ListItem>}>
             </List>
+            <Modal
+                visible={this.state.visiblePopupMap}
+                animationType="slide"
+                transparent={false}
+                onRequestClose={() => {this.closeModelVideo()}}>
+                <Container>
+                    <VideoFootball linkVideo={this.state.linkVideo} titleVideo={this.state.titleVideo}></VideoFootball>
+                </Container>
+            </Modal>
         </ScrollView>
     );
   }
